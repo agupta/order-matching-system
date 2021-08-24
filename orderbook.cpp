@@ -1,4 +1,4 @@
-//
+
 #include "OrderBook.h"
 
 std::vector<Trade> OrderBook::add_buy(Order order) {
@@ -38,7 +38,7 @@ std::vector<Trade> OrderBook::add_order(Direction direction, Order order) {
 		}
 	}
 	// clean up counter_orders with 0 lots.
-	//counter_orders.erase(std::remove_if(counter_orders.begin(), counter_orders.end(), [](const Order& co) {return co.lots == 0; }));
+	counter_orders.erase(std::remove_if(counter_orders.begin(), counter_orders.end(), [](const Order& co) {return co.lots == 0; }), counter_orders.end());
 	if (order.lots > 0) {
 		existing_orders.push_back(order);
 	}
